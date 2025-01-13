@@ -46,5 +46,31 @@ import java.util.Scanner;
             System.out.println("Item added.");
         }
 
+        private void editItem() { viewItems();
+            System.out.print("Enter item number to edit: ");
+            int index = scanner.nextInt(); scanner.nextLine(); // Consume newline
+            if(index >= 0 && index < items.size())
+            { System.out.print("Enter new item: ");
+                String newItem = scanner.nextLine();
+                items.set(index, newItem);
+                System.out.println("Item edited.");
+            }
+            else { System.out.println("Invalid item number.");
+            }
+        } private void removeItem() { viewItems();
+            System.out.print("Enter item number to remove: ");
+            int index = scanner.nextInt(); scanner.nextLine(); // Consume newline
+            if(index >= 0 && index < items.size())
+            { items.remove(index);
+                System.out.println("Item removed.");
+            }
+            else { System.out.println("Invalid item number.");
+            }
+        } private void viewItems() {
+            System.out.println("To-Do List Items:");
+            for(int i = 0; i < items.size(); i++)
+            { System.out.println((i + 1) + ". " + items.get(i)); }
+        }
+
 
     }
